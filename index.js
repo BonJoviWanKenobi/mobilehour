@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import productRoutes from './routes/products.js';
 import userRoutes from './routes/users.js';
+import customerRoutes from "./routes/customers.js"
 
 const app = express();
 
@@ -10,10 +11,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('./routes/uploads', express.static('uploads'));  // Serve the uploads directory
 
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/customers', customerRoutes)
 
 // Test route to verify server is running
 app.get('/', (req, res) => {

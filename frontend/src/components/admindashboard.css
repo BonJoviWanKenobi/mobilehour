@@ -1,0 +1,72 @@
+/* admindashboard.css */
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border: 1px solid #ccc;
+  margin: 8px 0;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  padding: 6px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  padding: 8px;
+  margin: 10px 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+}
+
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.dashboard-div {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Provides spacing between child elements */
+}
