@@ -2,11 +2,24 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Add this line
 
+const componentStyles = {
+    container:{
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
+ },
+ formStyle: {
+    color: 'red',
+ }
+}
+
 function AdminLogin() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [selectedProduct, setSelectedProduct] = useState(null);
 
     const navigate = useNavigate();
 
@@ -30,9 +43,9 @@ function AdminLogin() {
     };
 
     return (
-        <div>
+        <div style={componentStyles.container}>
             <h2>Admin Login</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={componentStyles.formStyle}>
                 <input 
                     type="text" 
                     placeholder="Username" 

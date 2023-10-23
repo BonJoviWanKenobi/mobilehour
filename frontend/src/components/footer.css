@@ -1,0 +1,36 @@
+.site-footer {
+  background-color: teal; /* Dark background color */
+  color: #eee; /* Light text color */
+  padding: 1rem 0; /* Top and bottom padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.footer-content {
+  max-width: 1000px; /* You can adjust this based on your site's design */
+  width: 100%;
+  padding: 0 2rem; /* Left and right padding */
+  display: flex;
+  justify-content: space-between; /* Separates content and links */
+  align-items: center;
+}
+
+.footer-links {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  display: flex;
+  gap: 10px; /* Space between links */
+}
+
+.footer-links li a {
+  color: #fff; /* Lighter color for links */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.footer-links li a:hover {
+  color: #fff; /* Brighter color on hover */
+}

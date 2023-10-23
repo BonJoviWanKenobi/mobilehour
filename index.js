@@ -4,14 +4,15 @@ import cors from 'cors';
 import productRoutes from './routes/products.js';
 import userRoutes from './routes/users.js';
 import customerRoutes from "./routes/customers.js"
-
+import upload from './routes/upload.js';
 const app = express();
 
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('./routes/uploads', express.static('uploads'));  // Serve the uploads directory
+app.use('/uploads', express.static('uploads'));
+  // Serve the uploads directory
 
 // Routes
 app.use('/api/products', productRoutes);

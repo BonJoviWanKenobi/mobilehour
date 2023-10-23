@@ -46,7 +46,6 @@ input[type="password"] {
 }
 
 form {
-  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -55,18 +54,87 @@ form {
   text-align: center;
 }
 
-.admin-dashboard {
+.dashboard-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   padding-top: 20px;
   padding-bottom: 20px;
+  max-width: 90vw;
+  gap: 20px; /* Provides spacing between child elements */
+  margin-left: 10px;
 }
 
-.dashboard-div {
-  width: 800px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Provides spacing between child elements */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 5rem;
+  padding: 2rem;
+}
+
+.product-card {
+  overflow: hidden;
+  transition: transform 0.3s;
+  height: 450px;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-card h3 {
+  padding: 1rem;
+  margin: 0;
+}
+
+.product-card p {
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
+
+.products-div {
+  margin-top: 50px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.dashboard-component {
+  width: 70%;
+}
+
+button {
+  margin: 20px;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .dashboard-component {
+    width: 100%;
+    margin: 20px;
+  }
+
+  th {
+    font-size: 12px;
+    max-width: 50px;
+  }
+
+  tr {
+    font-size: 12px;
+  }
 }

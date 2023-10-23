@@ -6,6 +6,15 @@ import checkRole from '../middleware/checkRole.js';
 
 const router = express.Router();
 
+router.get('/all-users', checkRole(['admin', 'admin manager']), async (req, res) => {
+    try {
+      const [users] = await db.query('SELECT user_id, username, firstname, lastname, user_role FROM user');
+      res.json(users);
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  });
+
 // User authentication (login)
 // User authentication (login)
 router.post('/auth', async (req, res) => {
@@ -77,16 +86,68 @@ router.post('/create', checkRole(['admin manager']), async (req, res) => {
     }
 });
 
+
+
+  
+  router.put('/update-account', checkRole(['admin', 'admin manager']), async (req, res) => {
+    const { username, firstname, lastname, user_password } = req.body; // You can add other fields you want to update
+    const userId = req.user.id; // Assuming you've set the user object to req in a middleware
+
+    try {
+        await db.query('UPDATE users SET username = ?, firstname = ?, lastname = ?, user_password = ? WHERE id = ?', [username, firstname, lastname, user_password, userId]);
+        res.json({ success: true, message: "Account updated successfully!" });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
 router.get('/changelog', async (req, res) => {
     try {
-        const [changelog] = await db.query('SELECT * FROM changelog ORDER BY date_last_modified DESC');
+        let whereConditions = [];
+        let queryParams = [];
+        
+        // Filter by product
+        if (req.query.product) {
+            whereConditions.push('product_id = ?');
+            queryParams.push(req.query.product);
+        }
+        
+        // Filter by date range
+        if (req.query.startDate && req.query.endDate) {
+            whereConditions.push('date_last_modified BETWEEN ? AND ?');
+            queryParams.push(req.query.startDate, req.query.endDate);
+        } else if (req.query.startDate) { // Just start date provided
+            whereConditions.push('date_last_modified >= ?');
+            queryParams.push(req.query.startDate);
+        } else if (req.query.endDate) { // Just end date provided
+            whereConditions.push('date_last_modified <= ?');
+            queryParams.push(req.query.endDate);
+        }
+        
+        // Filter by user
+        if (req.query.user) {
+            whereConditions.push('user_id = ?');
+            queryParams.push(req.query.user);
+        }
+        
+        // Construct the query based on the presence of filters
+        let queryStr = 'SELECT * FROM changelog';
+        
+        if (whereConditions.length) {
+            queryStr += ' WHERE ' + whereConditions.join(' AND ');
+        }
+        
+        queryStr += ' ORDER BY date_last_modified DESC';
+
+        // Use the parameterized query for safety (to prevent SQL injection)
+        const [changelog] = await db.query(queryStr, queryParams);
+
         res.json(changelog);
     } catch (error) {
         console.error("Database Query Error:", error);
         return res.status(500).send('Database error');
     }
-  });
-  
+});
+
 
 // In your routes file
 
