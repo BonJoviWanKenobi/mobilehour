@@ -1,0 +1,52 @@
+/* Checkout.css */
+
+/* General container for the checkout */
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2,
+h3 {
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+/* List of items in the cart */
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #004a99;
+}

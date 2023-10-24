@@ -17,7 +17,7 @@ app.use('/uploads', express.static('uploads'));
 // Routes
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/customers', customerRoutes)
+app.use('/api/customer', customerRoutes)
 
 // Test route to verify server is running
 app.get('/', (req, res) => {

@@ -7,17 +7,18 @@ import checkRole from '../middleware/checkRole.js';
 
 const router = express.Router();
 
-router.post("/register", async (req,res) => {
-    const { firstname, lastname, cust_phone, cust_email, cust_password, cust_address, postcode, city } = req.body;
+router.post("/register", async (req, res) => {
+    const { firstname, lastname, cust_email, cust_password } = req.body;
     const hashedPassword = bcrypt.hashSync(cust_password, 10);
 
     try {
-        await db.query("INSERT INTO customer (firstname, lastname, cust_phone, cust_email, cust_password, cust_address, postcode, city) VALUES (?, ?, ?, ?, ?, ?, ?, ?", [firstname, lastname, cust_phone, cust_email, hashedPassword, cust_address, postcode, city]);
-        res.json({ success: true, message: "Customer registered successfully!"});     
+        await db.query("INSERT INTO customer (firstname, lastname, cust_email, cust_password) VALUES (?, ?, ?, ?)", [firstname, lastname,cust_email, hashedPassword]);
+        res.json({ success: true, message: "Customer registered successfully!" });     
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error.message);
     }
-})
+});
+
 
 router.post("/login", async (req, res) => {
     const { cust_email, cust_password } = req.body;

@@ -24,6 +24,7 @@ function Navbar(props) {
             </Link>
             <div className='nav-links'>
                 <Link to="/mobile-phones">Shop All Mobiles</Link>
+                <Link to="/customers/login">Login</Link>
                 <div className="cart-icon" onClick={toggleCartOverlay}> {/* Add the event handler here */}
                     <span>{cart.length}</span>
                     <img src={cartIcon} alt="Cart" />

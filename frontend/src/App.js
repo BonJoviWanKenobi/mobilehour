@@ -7,7 +7,8 @@ import ProductsList from './components/ProductsList';
 import ProductDetail from './components/productdetail';
 import HomePage from './components/home';
 import { CartProvider } from './components/CartContext';
-
+import CustomerAuth from './components/customerlogin'
+import Checkout from './components/checkout';
  // Import the new component
 
 
@@ -22,6 +23,8 @@ function App() {
     <Route path="/mobile-phones" element={<ProductsList />} />
     <Route path="/products/:id" element={<ProductDetail />} />
     <Route path="/home" element={<HomePage />} />
+    <Route path="/customer/login" element={<CustomerAuth />} />
+    <Route path="/checkout" element={<Checkout />} />
 </Routes>
     </Router>
     </CartProvider>
