@@ -1,6 +1,6 @@
 # The Mobile Hour
 
-Hello there, intrepid explorer of code!
+Hello there, intrepid explorer of code! (Or, more likely, my teacher.)
 Welcome to "The Mobile Hour”, an ecommerce web application that uses React for the frontend, and Node, Express, and MySQL for the backend. Features of this application include CRUD operations, role-based access control, filtering, (mediocre) design, a working cart, and a (somewhat) functional checkout process. She may not be pretty, but she works, and I’m here to tell you brave souls exactly how. 
 
 ## The Treasure Map (aka Repository URL)
@@ -10,9 +10,9 @@ Your journey begins at: https://github.com/BonJoviWanKenobi/mobilehour.git
 
 ##  Prerequisites:
 * Node.js and npm: Our backend's favourite runtime (npm should be included in your Node.js install). 
-*	MySQL: The place where we keep all our secrets . . . I mean, data.
-*	MySQL Workbench (Because who doesn't like visual tools?)
-*	A cup of coffee – it can’t hurt. 
+*	MySQL
+*	MySQL Workbench
+*	A cup of coffee (surely it can't hurt?)
 
 ##	Setup the Database:
 1. Open MySQL Workbench. Create a new connection using the following credentials:
