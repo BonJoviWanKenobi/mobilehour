@@ -9,19 +9,19 @@ Your journey begins at: https://github.com/BonJoviWanKenobi/mobilehour.git
 
 
 ##  Prerequisites:
-•	Node.js and npm: Our backend's favourite runtime (npm should be included in your Node.js install). 
-•	MySQL: The place where we keep all our secrets . . . I mean, data.
-•	MySQL Workbench (Because who doesn't like visual tools?)
-•	A cup of coffee – it can’t hurt. 
+* Node.js and npm: Our backend's favourite runtime (npm should be included in your Node.js install). 
+*	MySQL: The place where we keep all our secrets . . . I mean, data.
+*	MySQL Workbench (Because who doesn't like visual tools?)
+*	A cup of coffee – it can’t hurt. 
 
 ##	Setup the Database:
-a)	Open MySQL Workbench. Create a new connection using the following credentials:
-•	Username: root
-•	Password: root
-b)	Once connected, import the database dump:
-•	Go to Server > Data Import.
-•	Choose Import from Self-Contained File and select the "themobilehourdatabase.sql" file.
-•	Click Start Import.
+1. Open MySQL Workbench. Create a new connection using the following credentials:
+*	Username: root
+*	Password: root
+2. Once connected, import the database dump:
+*	Go to Server > Data Import.
+*	Choose Import from Self-Contained File and select the "themobilehourdatabase.sql" file.
+*	Click Start Import.
 
 ##	Clone The Repository (in your terminal):
   git clone https://github.com/BonJoviWanKenobi/mobilehour.git
@@ -34,16 +34,16 @@ b)	Once connected, import the database dump:
 
 ##	Set Course to the Frontend:
 Navigate to the backend and do the same:
-  cd frontend
-  npm install
+* cd frontend
+* npm install
 
 ##	Land, Ahoy! (Start the Project):
 1. Start the backend from the root directory:
-  npm start
+* npm start
  
 2. Launch the frontend from its respective directory:
-  cd frontend
-  npm start
+* cd frontend
+* npm start
 
 And there you go! You should now be sailing smoothly on http://localhost:3000/ with the wind in your hair and "The Mobile Hour" in front of you.
 
