@@ -1,7 +1,3 @@
-https://github.com/BonJoviWanKenobi/mobilehour.git
-It’s just you, me, and this repository. 
-
-The Mobile Hour - README
 Hello there, intrepid explorer of code!
 Welcome to "The Mobile Hour”, an ecommerce web application that uses React for the frontend, and Node, Express, and MySQL for the backend. Features of this application include CRUD operations, role-based access control, filtering, (mediocre) design, a working cart, and a (somewhat) functional checkout process. She may not be pretty, but she works, and I’m here to tell you brave souls exactly how. 
 The Treasure Map 🗺️ (aka Repository URL)
