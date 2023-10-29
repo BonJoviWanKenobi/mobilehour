@@ -6,7 +6,7 @@ import userRoutes from './routes/users.js';
 import customerRoutes from "./routes/customers.js"
 import loginRoutes from "./routes/login.js"
 import upload from './routes/upload.js';
-import checkRole from '../middleware/checkRole.js';
+import checkRole from './middleware/checkRole.js';
 const app = express();
 
 

@@ -1,29 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './admindashboard.css';
-import { useNavigate } from 'react-router-dom'; 
-
-function ProtectedRoute({ children, ...rest }) {
-    let userRole = localStorage.getItem('userRole'); // or however you store the role
-  
-    return (
-      <Route
-        {...rest}
-        render={({ location }) =>
-          userRole === 'admin' ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/",
-                state: { from: location }
-              }}
-            />
-          )
-        }
-      />
-    );
-  }
+import { useNavigate } from 'react-router-dom';
+import './navbar.css'
+import Navbar from './navbar';
   
 function AdminDashboard() {
     const [stockByBrand, setStockByBrand] = useState([]);
@@ -319,8 +299,9 @@ setStockByBrand(responseStockByBrand.data);
 
 
 
-    return (
+    return ( 
         <div className='admin-dashboard'>
+            <Navbar />
             <h2>Admin Dashboard</h2>
         <div className='dashboard-div'>
             {/* Add Product Section */}

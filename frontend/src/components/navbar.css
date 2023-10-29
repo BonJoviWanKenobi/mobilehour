@@ -39,7 +39,6 @@ nav a:hover {
   height: auto; /* Maintain the aspect ratio */
 }
 
-
 .cart-icon img {
   width: 30px;
 }
@@ -48,6 +47,10 @@ nav a:hover {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+button {
+  background-color: none;
 }
 
 @media only screen and (max-width: 1000px) {
