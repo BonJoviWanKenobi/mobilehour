@@ -45,7 +45,23 @@ Navigate to the backend and do the same:
 * cd frontend
 * npm start
 
-And there you go! You should now be sailing smoothly on http://localhost:3000/ with the wind in your hair and "The Mobile Hour" in front of you.
+3. Login Details:
+
+Admin manager login:
+* Username: bennyboy
+* Password: 1234
+
+Admin user login (less privileges):
+* Username: dossa
+* Password: 1234
+
+Customer login:
+* Email: jh@email.com
+* Password: 1234
+
+(note: passwords are hashed before being stored in the database)
+
+And there you have it! You should now be sailing smoothly on http://localhost:3000/ with the wind in your hair and "The Mobile Hour" in front of you.
 
 ## Troubles on Your Journey? 
 Remember, every sailor, no matter how experienced, faces challenges. If you encounter any sea monsters (aka bugs), feel free to drop a message in a bottle (or, you know, just use GitHub issues).
