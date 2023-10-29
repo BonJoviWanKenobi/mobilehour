@@ -32,7 +32,7 @@ function CustomerAuth() {
             const response = await axios.post('http://localhost:5000/api/customer/login', { cust_email: email, cust_password: password });
             const token = response.data.token;
             localStorage.setItem('authToken', token);
-            navigate('/customer/dashboard');  // Adjust this route based on where you want customers to go post-login
+            navigate('/mobile-phones');  // Adjust this route based on where you want customers to go post-login
         } catch (err) {
             setError('Invalid login credentials. Please try again.');
         }
@@ -61,7 +61,7 @@ function CustomerAuth() {
             {isLogin ? (
                 <>
                     <h2>Customer Login</h2>
-                    <form onSubmit={handleLogin}>
+                    <form onSubmit={handleLogin} style={componentStyles.formStyle}>
                         <input 
                             type="email" 
                             placeholder="Email" 
