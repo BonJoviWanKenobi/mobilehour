@@ -4,8 +4,11 @@ import cors from 'cors';
 import productRoutes from './routes/products.js';
 import userRoutes from './routes/users.js';
 import customerRoutes from "./routes/customers.js"
+import loginRoutes from "./routes/login.js"
 import upload from './routes/upload.js';
+import checkRole from '../middleware/checkRole.js';
 const app = express();
+
 
 // Middlewares
 app.use(cors());
@@ -16,8 +19,9 @@ app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.use('/api/products', productRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/login', loginRoutes)
 app.use('/api/customer', customerRoutes)
+app.use('/api/users',checkRole(['admin']), userRoutes)
 
 // Test route to verify server is running
 app.get('/', (req, res) => {

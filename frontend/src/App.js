@@ -9,6 +9,7 @@ import HomePage from './components/home';
 import { CartProvider } from './components/CartContext';
 import CustomerAuth from './components/customerlogin'
 import Checkout from './components/checkout';
+import Login from './components/accountLogin';
  // Import the new component
 
 
@@ -19,13 +20,18 @@ function App() {
 <Routes>
     <Route path="/" element={<Home />} exact />
     <Route path="/admin/login" element={<AdminLogin />} />
-    <Route path="/admin/dashboard" element={<AdminDashboard />} />
+    <ProtectedRoute path="/admin/dashboard">
+  <AdminDashboard />
+</ProtectedRoute>
+
     <Route path="/mobile-phones" element={<ProductsList />} />
     <Route path="/products/:id" element={<ProductDetail />} />
     <Route path="/home" element={<HomePage />} />
     <Route path="/customer/login" element={<CustomerAuth />} />
     <Route path="/checkout" element={<Checkout />} />
+    <Route path="/account-login" element={<Login />} />
 </Routes>
+
     </Router>
     </CartProvider>
   );

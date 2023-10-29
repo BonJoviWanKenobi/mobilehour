@@ -100,7 +100,7 @@ router.post('/create', checkRole(['admin manager']), async (req, res) => {
         res.status(500).send(error.message);
     }
 });
-router.get('/changelog', async (req, res) => {
+router.get('/changelog', checkRole(['admin', 'admin manager']), async (req, res) => {
     try {
         let whereConditions = [];
         let queryParams = [];

@@ -23,7 +23,7 @@ function Navbar(props) {
     const handleLogout = () => {
         // Remove the token from local storage
         localStorage.removeItem('authToken');
-        navigate('/customer/login');
+        navigate('/account-login');
     };
 
     return (
@@ -39,7 +39,7 @@ function Navbar(props) {
                         <button onClick={handleLogout}>Logout</button>
                     </div>
                 ) : (
-                    <Link to="/customer/login">Login</Link>
+                    <Link to="/account-login">Login</Link>
                 )}
 
                 <div className="cart-icon" onClick={toggleCartOverlay}>

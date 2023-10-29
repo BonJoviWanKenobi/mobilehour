@@ -3,6 +3,28 @@ import axios from 'axios';
 import './admindashboard.css';
 import { useNavigate } from 'react-router-dom'; 
 
+function ProtectedRoute({ children, ...rest }) {
+    let userRole = localStorage.getItem('userRole'); // or however you store the role
+  
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          userRole === 'admin' ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
+  
 function AdminDashboard() {
     const [stockByBrand, setStockByBrand] = useState([]);
     const [products, setProducts] = useState([]);
@@ -259,26 +281,39 @@ setStockByBrand(responseStockByBrand.data);
     };
 
     const [changelog, setChangelog] = useState([]);
-
-useEffect(() => {
-    async function fetchChangelog() {
-        try {
-            const response = await axios.get('http://localhost:5000/api/users/changelog');  // Adjust the URL based on your setup
-            setChangelog(response.data);
-        } catch (error) {
-            console.error("Error fetching changelog:", error);
+    useEffect(() => {
+        async function fetchChangelog() {
+            try {
+                const config = {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    }
+                };
+    
+                const response = await axios.get('http://localhost:5000/api/users/changelog', config);
+                setChangelog(response.data);
+    
+            } catch (error) {
+                console.error("Error fetching changelog:", error);
+                // Optionally, you can set changelog to an empty array here if there's an error.
+                // This is up to your specific use-case.
+                // setChangelog([]);
+            }
         }
-    }
+    
+        fetchChangelog();
+    }, []);
+    
+
   
 
-    fetchChangelog();
-}, []);
+
 
     const handleLogout = () => {
         // Remove the token from local storage
         localStorage.removeItem('authToken');
  
-        navigate('/admin/login')
+        navigate('/account-login')
         
     };
 
